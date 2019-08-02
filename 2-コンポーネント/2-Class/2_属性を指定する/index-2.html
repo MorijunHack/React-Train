@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Training</title>
+    <!-- Reactをページに読み込むための記述 -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- JSXライブラリを読み込む -->
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+    <h1>React</h1>
+    <div id="root">wait...</div>
+
+    <script type="text/babel">
+        let dom = document.querySelector('#root');
+
+        class Boxes extends React.Component {
+            x = 0;
+            y = 0;
+            width = 0;
+            height = 0;
+            color = "white";
+            style = {};
+
+            constructor(props) {
+                super(props);
+                this.x = props.x;
+                this.y = props.y;
+                this.width = props.w;
+                this.height = props.h;
+                this.color = props.c;
+                this.style = {
+                    background: this.color,
+                    position: "absolute",
+                    left: this.x + "px",
+                    top: this.y + "px",
+                    width: this.width + "px",
+                    height: this.height + "px"
+                }
+            }
+
+            render() {
+                return <div style={this.style}></div>
+            }
+        }
+
+        let el = (
+            <div>
+                <Boxes x="100" y="100" w="100" h="100" c="cyan" />
+                <Boxes x="150" y="150" w="100" h="100" c="magenta" />
+            </div>
+        );
+
+        ReactDOM.render(el,dom);
+    </script>
+    
+</body>
+</html>

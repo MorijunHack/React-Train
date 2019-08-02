@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Training</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+  <h1>React</h1>
+  <div id="root">wait...</div>
+  <script type="text/babel">
+    let dom = document.querySelector('#root');
+
+    const rst = {
+      fontSize: "20pt",
+      fontWeight: "bold",
+      padding: "10px",
+      background: "darkblue",
+      color: "white"
+    };
+
+    function Sum(props) {
+      var sum = 0;
+      for(let i=0; i<=props.max; i++) {
+        sum = sum + i
+      }
+      return <p style={rst}>1から{props.max}までの合計は、「{sum}」です。</p>
+    }
+
+    let el = (
+      <div>
+        <Sum max="100" />
+        <Sum max="200" />
+        <Sum max="300" />
+      </div>
+    );
+
+    ReactDOM.render(el, dom);
+  </script>
+</body>
+</html>
