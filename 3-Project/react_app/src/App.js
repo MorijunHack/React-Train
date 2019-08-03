@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+// react.jsに記述されているReact（exportされてるもの）とComponentをインポートしている。後者はexportされていないので、{}で囲って表現する
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// 元々は関数コンポーネント
+// function App() {
+//   return (
+//     <div>
+//       <h1>React</h1>
+//       <p>This is sample component.</p>
+//       <p>これはサンプルのコンポーネントですよん</p>
+//     </div>
+//   );
+// }
+
+// 教材ではクラスに変えたいようなので、こちらに書き換えた
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1>React</h1>
+        <p>This is sample component.</p>
+        <p>これはコンポーネントのサンプルですよん。</p>
+      </div>
+    );
+  }
 }
 
 export default App;
